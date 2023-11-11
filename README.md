@@ -1,2 +1,2 @@
 # SpacecraftDesigner
-Design your very own spacecraft using FreeCAD and magic
+Design your very own spacecraft using FreeCAD and voodoo hand-waving (code).
