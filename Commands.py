@@ -554,7 +554,7 @@ class Payload():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\PLD.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\PLD.jpg',
                 'Accel' : "Shift+Y", # a default shortcut (optional)
                 'MenuText': "Payload",
                 'ToolTip' : "Select payload and payload characteristics"}
@@ -687,7 +687,7 @@ class Schedule():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\SCH.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\SCH.jpg',
                 'Accel' : "Shift+H", # a default shortcut (optional)
                 'MenuText': "Mission Scheduler",
                 'ToolTip' : "Set Mission Schedule"}
@@ -812,7 +812,7 @@ class LaunchVehicle():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Launch.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\Launch.jpg',
                 'Accel' : "Shift+W", # a default shortcut (optional)
                 'MenuText': "Launch Vehicle",
                 'ToolTip' : "Select a Launch Vehicle"}
@@ -876,7 +876,7 @@ class GNC():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\GNC.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\GNC.jpg',
                 'Accel' : "Shift+G", # a default shortcut (optional)
                 'MenuText': "Guidance, Navigation and Control",
                 'ToolTip' : "Define Spacecraft Guidance, Navigation and Control Scheme"}
@@ -3040,7 +3040,7 @@ class GNC():
 class Propulsion():
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Propulsion.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\Propulsion.jpg',
                 'Accel' : "Shift+P", # a default shortcut (optional)
                 'MenuText': "Propulsion",
                 'ToolTip' : "Define Spacecraft Propulsion System"}
@@ -5794,7 +5794,7 @@ class Mechanical():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Mech.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\Mech.jpg',
                 'Accel' : "Shift+S", # a default shortcut (optional)
                 'MenuText': "Mechanical",
                 'ToolTip' : "Define Spacecraft Mechanical Systems"}
@@ -6078,7 +6078,7 @@ class Power():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Power.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\Power.jpg',
                 'Accel' : "Shift+E", # a default shortcut (optional)
                 'MenuText': "Power",
                 'ToolTip' : "Define Spacecraft Power System"}
@@ -6256,7 +6256,7 @@ class Thermal():
     import math
     def GetResources(self):
         return {
-            'Pixmap': 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Thermal.jpg',
+            'Pixmap': 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\Thermal.jpg',
             'Accel': "Shift+T",  # a default shortcut (optional)
             'MenuText': "Thermal",
             'ToolTip': "Define Spacecraft Thermal Systems"}
@@ -7229,7 +7229,7 @@ class Aero():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Aero.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\Aero.jpg',
                 'Accel' : "Shift+A", # a default shortcut (optional)
                 'MenuText': "Aero",
                 'ToolTip' : "Define Spacecraft Aerodynamic Characteristics"}
@@ -8002,7 +8002,7 @@ class Comms():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Comm.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\Comm.jpg',
                 'Accel' : "Shift+C", # a default shortcut (optional)
                 'MenuText': "Comms",
                 'ToolTip' : "Define Spacecraft Communications System"}
@@ -8386,7 +8386,7 @@ class LifeSupport():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\LifeSupport.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\LifeSupport.jpg',
                 'Accel' : "Shift+L", # a default shortcut (optional)
                 'MenuText': "LifeSupport",
                 'ToolTip' : "Define Spacecraft Life Support and Crew Systems"}
@@ -8521,7 +8521,7 @@ class TestEngineering():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\TestEgr.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\TestEgr.jpg',
                 'Accel' : "Shift+R", # a default shortcut (optional)
                 'MenuText': "TestEngineering",
                 'ToolTip' : "TestEngineering"}
@@ -8563,7 +8563,7 @@ class Manufacturing():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\MFG.jpg',
+        return {'Pixmap'  : 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\MFG.jpg',
                 'Accel' : "Shift+F", # a default shortcut (optional)
                 'MenuText': "Manufacturing",
                 'ToolTip' : "Manufacturing"}
