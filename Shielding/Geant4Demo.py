@@ -1,3 +1,5 @@
+# This file demonstrates how to use Geant4, which is a monte carlo particle simulator developed by CERN. This could be used for shielding analysis to evaluate
+# crew safety for future spacecraft designs
 # Based off of https://github.com/HaarigerHarald/geant4_pybind/tree/main, refer to this
 # You may also need to have Visual Studio for C++ development
 # If you run into errors let me know!
