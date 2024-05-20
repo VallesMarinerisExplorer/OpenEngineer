@@ -1,6 +1,5 @@
-# SpacecraftDesigner
+# SpacecraftDesigner ![RocketEngine](Icon1.jpg)
 Design your very own spacecraft using FreeCAD.
-![RocketEngine](Icon1.jpg)
 
 Spacecraft Designer is meant to create spacecraft for the Explorers repository.
 https://github.com/VallesMarinerisExplorer/Explorers/tree/main
