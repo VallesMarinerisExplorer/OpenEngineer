@@ -11,7 +11,7 @@ This is a workbench for FreeCAD. To use it, first install FreeCAD for your syste
 
 FreeCAD will likely create a directory for you:C:\Users\USERNAME\AppData\Roaming\FreeCAD\Mod
 
-In the Mod directory, unzip this folder as C:\Users\ahorv\AppData\Roaming\FreeCAD\Mod\SpacecraftDesigner. You should then be able to open FreeCAD and see the workbench show up. Create an issue if you have an issue.
+In the Mod directory, unzip this folder as C:\Users\USERNAME\AppData\Roaming\FreeCAD\Mod\SpacecraftDesigner. You should then be able to open FreeCAD and see the workbench show up. Create an issue if you have an issue.
 
 This workbench is by no means complete, so if you see errors or have questions feel free to share your opinion and thoughts!
 
