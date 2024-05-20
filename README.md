@@ -1,6 +1,7 @@
 # SpacecraftDesigner 
 
 ![RocketEngine](Icon1.jpg)
+
 Design your very own spacecraft using FreeCAD.
 
 Spacecraft Designer is meant to create spacecraft for the Explorers repository.
