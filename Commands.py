@@ -3,6 +3,17 @@ import FreeCADGui
 import sys
 import os
 import math
+import re
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+import csv
+from scipy.optimize import curve_fit
+import numpy
+import warnings
+from datetime import timedelta
+from os.path import exists
+from datetime import datetime
 
 FreeCADPath = FreeCAD.__path__[1]
 FreeCADPath = FreeCADPath.replace("lib","bin")
@@ -24,8 +35,7 @@ except:
 
     install_requirements()
     import FreeSimpleGUI as sg
-import re
-import numpy as np
+
 
 username = str(os.getlogin())
 
@@ -139,13 +149,6 @@ class Body():
             self.soi = 86082764
 
 
-import matplotlib.pyplot as plt
-import matplotlib
-
-from scipy.optimize import curve_fit
-import numpy as np
-import numpy
-import warnings
 
 def AtlasMass(apogeealt, config, inclination):
 
@@ -497,8 +500,7 @@ def ParkingOrbitAlgorithm(testmass, circalt, inclination):
 # plt.show()
 
 def CalculateAsmMass():
-    import csv
-    import os
+
     Vol = []
     inertiafiles = []
     totalMass = 0
@@ -579,7 +581,6 @@ class Payload():
                 'ToolTip' : "Select payload and payload characteristics"}
 
     def Activated(self):
-        import FreeSimpleGUI as sg
         layout1 = [
             [sg.Text('Name your mission', size=(25, 1)), sg.InputText('', size=(20, 1))],
             [sg.Submit(tooltip='Click to submit'), sg.Cancel()]]
@@ -712,12 +713,6 @@ class Schedule():
                 'ToolTip' : "Set Mission Schedule"}
 
     def Activated(self):
-        from datetime import timedelta
-        import matplotlib.pyplot as plt
-        import numpy as np
-        from os.path import exists
-        import csv
-        from datetime import datetime
 
         if not exists(SCDesignerPath + "\\Schedule.png"):
             from PIL import Image
@@ -6345,11 +6340,9 @@ class Thermal():
 
         window.close()
         if event == "-SYS-":
-            import math
             # import pandas as pd
             # import FUNCTIONS
             from scipy import special
-            import warnings
 
             thermalsystype = values[0]
             if thermalsystype == "Heat Pipe":
@@ -7137,7 +7130,6 @@ class Thermal():
                 V = 200 # volts
 
                 # Atot = spacing*height
-                import csv
                 # https://www.eplan.help/es-ES/Infoportal/Content/harness/2.8/EPLAN_Help.htm#htm/LIB_AWG_to_mm.htm
                 with open(SCDesignerPath + "\\POWER\\AWG_WIRE_AREAS.csv", "r") as f:
                     gauges = csv.reader(f, delimiter=',')
@@ -7151,9 +7143,7 @@ class Thermal():
                 addPowerSystem("Heater",V,I)
         elif event == "-COAT-":
             window.close()
-            import csv
-            import FreeCAD
-            import FreeCADGui as Gui
+
             i = 0
             MaterialList = []
             with open(SCDesignerPath + '\\THERMAL\\Surface Finish.csv', 'r') as csvfile:
@@ -7770,7 +7760,6 @@ class Aero():
 
         elif event == "-ENTRY-":
 
-            import math
             import airfoils
             '''
             Aero flow
@@ -7838,8 +7827,6 @@ class Aero():
 
 
 
-
-            import math
 
             # Dave Akins slide 6 of Launch Entry Vehicle Design
 
@@ -8043,8 +8030,6 @@ class Comms():
         window = sg.Window('Communications', layout, default_element_size=(40, 1), grab_anywhere=False)      
 
         event, values = window.read()
-        import numpy
-        import math
 
         # https://pysdr.org/content/link_budgets.html
 
@@ -8158,15 +8143,10 @@ class Comms():
         elif event == "-GEOMETRY-":
             if values[0] == "Microstrip/Patch":
                 """ Functions dealing with rectangular patch antenna."""
-                import math
-                import matplotlib.pyplot as plt
-                import numpy as np
                 # from sph2cart1 import sph2cart1
                 # from cart2sph1 import cart2sph1
                 from math import cos, sin, sqrt
                 from mpl_toolkits.mplot3d import Axes3D
-
-                import math
 
                 def sph2cart1(r, theta, phi):
                     return [
@@ -8411,7 +8391,6 @@ class LifeSupport():
                 'ToolTip' : "Define Spacecraft Life Support and Crew Systems"}
 
     def Activated(self):
-        import FreeSimpleGUI as sg
         layout = [[sg.Text('Num Crew'), sg.InputText(''), sg.Button("OK", key="-CREW-")],
                   [sg.Text("Add Potable Water Tank"), sg.Button("OK", key="-WATER-")],
                   [sg.Text("Select Food"), sg.Button("OK", key="-FOOD-")],
@@ -8452,7 +8431,6 @@ class LifeSupport():
 
         elif event == "-FOOD-":
             if event == "-FOOD-":
-                import csv
                 TripHeader = ['      Food      ','Total Mass (Kg)','Calories','Protein','   Fat   ','Sat Fat','Fiber','Carbs']
                 FoodList = []
                 TripFoods = []
@@ -8515,7 +8493,6 @@ class LifeSupport():
         elif event == "-CREW-":
 
             def HabitableVol(duration, NumCrew, comfort):
-                import math
                 # Spacecraft Habitability
                 # ENAE 697 - Space Human Factors and Life Support
                 # University of Maryland
@@ -8646,7 +8623,6 @@ class Run():
                 'ToolTip': "Fly Mission"}
 
     def Activated(self):
-        import csv
         SpaceportList = []
         i = 0
         with open('C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Spaceports.csv', 'r') as csvfile:
@@ -8683,10 +8659,8 @@ class Run():
                         f.write(launch_lon)
                     f.close()
 
-            import os
             import os.path
             import importOBJ
-            import FreeCAD
             import Draft
             import Mesh
             # import  pybullet as p
@@ -8772,7 +8746,6 @@ class Run():
                         f.write(ypr[1] + ",")
                         f.write(ypr[0] + ",")
                         f.close()
-            import FreeCADGui as Gui
             Gui.activateWorkbench("A2plusWorkbench")
             Gui.runCommand('a2p_Show_Hierarchy_Command', 0)
             Gui.activateWorkbench("SpacecraftDesigner")
