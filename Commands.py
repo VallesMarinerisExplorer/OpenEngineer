@@ -3,7 +3,27 @@ import FreeCADGui
 import sys
 import os
 import math
-import PySimpleGUI as sg
+
+FreeCADPath = FreeCAD.__path__[1]
+FreeCADPath = FreeCADPath.replace("lib","bin")
+FreeCADPath = FreeCADPath + "\\Scripts\\pip"
+
+try:
+    import FreeSimpleGUI as sg
+except:
+    import subprocess
+
+    def install_requirements():
+        try:
+            FreeCAD.Console.PrintMessage("Installing requirements...\n")  # Use FreeCAD's console
+            subprocess.check_call([FreeCADPath, "install", "FreeSimpleGUI"])
+            subprocess.check_call([FreeCADPath, "install", "tk"])
+            FreeCAD.Console.PrintMessage("Installation complete!\n")
+        except subprocess.CalledProcessError as e:
+            FreeCAD.Console.PrintError(f"Error installing requirements: {e}\n")
+
+    install_requirements()
+    import FreeSimpleGUI as sg
 import re
 import numpy as np
 
@@ -11,7 +31,6 @@ username = str(os.getlogin())
 
 sg.ChangeLookAndFeel('Black')
 App=FreeCAD
-
 SCDesignerPath = "C:\\Users\\" + username + "\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner"
 
 class vehicle:
@@ -560,7 +579,7 @@ class Payload():
                 'ToolTip' : "Select payload and payload characteristics"}
 
     def Activated(self):
-        import PySimpleGUI as sg
+        import FreeSimpleGUI as sg
         layout1 = [
             [sg.Text('Name your mission', size=(25, 1)), sg.InputText('', size=(20, 1))],
             [sg.Submit(tooltip='Click to submit'), sg.Cancel()]]
@@ -707,7 +726,7 @@ class Schedule():
 
         ActivitiesList = ['Solar Panel Deploy', 'Collect Sample']
         import io
-        import PySimpleGUI as sg
+        import FreeSimpleGUI as sg
         from PIL import Image
         import time
         filename = SCDesignerPath + "\\Schedule.png"
@@ -883,7 +902,7 @@ class GNC():
 
     def Activated(self):
         import os
-        import PySimpleGUI as sg
+        import FreeSimpleGUI as sg
 
         layout = [
                   # [sg.Text('Expected Loiter Time at Mission Destination (optional, for return planning)'), sg.InputText('', size=(20, 1)), sg.Radio('Days', "RADIO1"), sg.Radio('Months', "RADIO1"), sg.Radio('Years', "RADIO1")],
@@ -1405,10 +1424,10 @@ class GNC():
             #                    grab_anywhere=False)
             #
             # event, values = window1.read()
-            import PySimpleGUI as sg
+            import FreeSimpleGUI as sg
             import numpy as np
             from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-            import PySimpleGUI as sg
+            import FreeSimpleGUI as sg
             import matplotlib
             # matplotlib.use('TkAgg')
 
@@ -1679,7 +1698,7 @@ class GNC():
 
                     import io
                     import os
-                    import PySimpleGUI as sg
+                    import FreeSimpleGUI as sg
                     from PIL import Image
                     filename = SCDesignerPath + "\\PORKCHOP.png"
                     image = Image.open(filename)
@@ -1726,7 +1745,7 @@ class GNC():
                 if event1 == "Exit" or event1 == sg.WIN_CLOSED:
                     pass
                 if values1[0] == 'Servo Motor':
-                    import PySimpleGUI as sg
+                    import FreeSimpleGUI as sg
                     import matplotlib.pyplot as plt
 
                     # Define GUI layout
@@ -1786,7 +1805,7 @@ class GNC():
                     import FreeCAD as App
                     import Part
                     import math
-                    import PySimpleGUI as sg
+                    import FreeSimpleGUI as sg
 
                     def designMotor(torque, k_t, k_e):
                         # Calculate motor dimensions
@@ -1809,7 +1828,7 @@ class GNC():
 
                         return motor
 
-                    # PySimpleGUI inputs
+                    # FreeSimpleGUI inputs
                     layout = [
                         [sg.Text("Enter motor requirements:")],
                         [sg.Text("Torque (N*m):"), sg.InputText(key="torque")],
@@ -1818,11 +1837,11 @@ class GNC():
                         [sg.Button("Design Motor")]
                     ]
 
-                    # Create PySimpleGUI window
+                    # Create FreeSimpleGUI window
                     window1 = sg.Window("Motor Design", layout)
 
                     while True:
-                        # Read values from PySimpleGUI window
+                        # Read values from FreeSimpleGUI window
                         event, values = window1.read()
 
                         # Exit when the window is closed
@@ -2658,7 +2677,7 @@ class GNC():
 
             import io
             import os
-            import PySimpleGUI as sg
+            import FreeSimpleGUI as sg
             from PIL import Image
             filename = SCDesignerPath + "\\PORKCHOP.png"
             image = Image.open(filename)
@@ -2692,9 +2711,9 @@ class GNC():
         if event == "-CONTROLLER-":
 
 
-            # import PySimpleGUIWeb as sg
-            # import PySimpleGUIQt as sg
-            import PySimpleGUI as sg
+            # import FreeSimpleGUIWeb as sg
+            # import FreeSimpleGUIQt as sg
+            import FreeSimpleGUI as sg
             import math
             import numpy as np
             from scipy.integrate import odeint
@@ -3050,7 +3069,7 @@ class Propulsion():
         # import openpyxl
 
 
-        import PySimpleGUI as sg
+        import FreeSimpleGUI as sg
 
         SCDesignerPath = "C:\\Users\\" + username + "\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner"
         # file = SCDesignerPath + "\\Component_lists.xlsx"
@@ -3084,7 +3103,7 @@ class Propulsion():
         im.save(SCDesignerPath + "\\DeltaVBreakdown.jpg", quality=95)
 
         import io
-        import PySimpleGUI as sg
+        import FreeSimpleGUI as sg
         from PIL import Image
         import time
         filename = SCDesignerPath + "\\DeltaVBreakdown.jpg"
@@ -6263,7 +6282,7 @@ class Thermal():
 
     def Activated(self):
 
-        import PySimpleGUI as sg
+        import FreeSimpleGUI as sg
 
         def choose_celestial_body():
             # Define the list of celestial bodies
@@ -8392,7 +8411,7 @@ class LifeSupport():
                 'ToolTip' : "Define Spacecraft Life Support and Crew Systems"}
 
     def Activated(self):
-        import PySimpleGUI as sg
+        import FreeSimpleGUI as sg
         layout = [[sg.Text('Num Crew'), sg.InputText(''), sg.Button("OK", key="-CREW-")],
                   [sg.Text("Add Potable Water Tank"), sg.Button("OK", key="-WATER-")],
                   [sg.Text("Select Food"), sg.Button("OK", key="-FOOD-")],
