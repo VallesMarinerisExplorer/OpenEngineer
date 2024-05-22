@@ -580,7 +580,7 @@ class Explore():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : SCDesignerPath + '\\EXP.jpg',
+        return {'Pixmap'  : SCDesignerPath + 'Icons\\EXP.jpg',
                 'MenuText': "Explore",
                 'ToolTip' : "Explore Opportunities"}
 
@@ -8659,7 +8659,7 @@ class Run():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap': 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\FLY.jpg',
+        return {'Pixmap': 'C:\\Users\\' + username + '\\AppData\\Roaming\\FreeCAD\\Mod\\SpacecraftDesigner\\Icons\\FLY.jpg',
                 'Accel': "Shift+L",  # a default shortcut (optional)
                 'MenuText': "Fly Mission",
                 'ToolTip': "Fly Mission"}
