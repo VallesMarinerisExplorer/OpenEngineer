@@ -14,26 +14,68 @@ import warnings
 from datetime import timedelta
 from os.path import exists
 from datetime import datetime
+import zipfile
 
 FreeCADPath = FreeCAD.__path__[1]
-FreeCADPath = FreeCADPath.replace("lib","bin")
-FreeCADPath = FreeCADPath + "\\Scripts\\pip"
-
+FreeCADPathbin = FreeCADPath.replace("lib","bin")
+FreeCADPath = FreeCADPathbin + "\\Scripts\\pip"
+# import FreeSimpleGUI as sg
 try:
     import FreeSimpleGUI as sg
 except:
     import subprocess
-
+    print("pip installing necessary packages for Spacecraft Designer\n"
+          "This may take a minute...")
     def install_requirements():
         try:
             FreeCAD.Console.PrintMessage("Installing requirements...\n")  # Use FreeCAD's console
             subprocess.check_call([FreeCADPath, "install", "FreeSimpleGUI"])
-            subprocess.check_call([FreeCADPath, "install", "tk"])
+            subprocess.check_call([FreeCADPath, "install", "requests"])
             FreeCAD.Console.PrintMessage("Installation complete!\n")
         except subprocess.CalledProcessError as e:
             FreeCAD.Console.PrintError(f"Error installing requirements: {e}\n")
 
     install_requirements()
+    import requests
+    # We also need to download tcl/tk which is what is necessary for FreeSimpleGUI for this workbench GUI
+    url = "https://github.com/VallesMarinerisExplorer/tcl/archive/refs/heads/main.zip"
+    response = requests.get(url)
+    response.raise_for_status()  # Raise an exception for HTTP errors
+
+    filename = url.split("/")[-1]  # Extract filename from URL
+
+    with open(filename, 'wb') as file:
+        file.write(response.content)
+
+    with zipfile.ZipFile(filename, 'r') as zip_ref:
+        zip_ref.extractall(FreeCADPathbin)
+
+    import shutil
+
+    # Define the source and destination directories
+    source_dir = FreeCADPathbin + "\\tcl-main\\tcl"
+    destination_dir = FreeCADPathbin.replace("bin","lib")
+
+    # Get the subfolders of the source parent directory
+    subfolders = [f for f in os.listdir(source_dir) if os.path.isdir(os.path.join(source_dir, f))]
+
+    # Copy each subfolder to the destination directory
+    for subfolder in subfolders:
+        source_subfolder = os.path.join(source_dir, subfolder)
+        try:
+            shutil.copytree(source_subfolder, os.path.join(destination_dir, subfolder))
+        except shutil.Error as e:
+            print(f"Error copying {subfolder}: {e}")
+        except OSError as e:
+            print(f"OS error encountered for {subfolder}: {e}")
+
+    src_files = os.listdir(source_dir)
+    for file_name in src_files:
+        full_file_name = os.path.join(source_dir, file_name)
+        if os.path.isfile(full_file_name):
+            shutil.copy(full_file_name, destination_dir)
+    shutil.rmtree(source_dir)
+    os.remove(filename)
     import FreeSimpleGUI as sg
 
 
