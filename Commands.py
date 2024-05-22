@@ -580,7 +580,7 @@ class Explore():
     """My new command"""
 
     def GetResources(self):
-        return {'Pixmap'  : SCDesignerPath + 'Icons\\EXP.jpg',
+        return {'Pixmap'  : SCDesignerPath + '\\Icons\\EXP.jpg',
                 'MenuText': "Explore",
                 'ToolTip' : "Explore Opportunities"}
 
